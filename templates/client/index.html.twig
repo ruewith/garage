@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title}}{% endblock %}
+
+{% block main %}
+    <div class="container-fluid mt-5">
+        <div class="card mb-4 wow fadeIn">
+            <div class="card-body d-sm-flex justify-content-between">
+                <h2 class="mb-2 mb-sm-0 pt-1">
+                    {{ title }}
+                </h2>
+            </div>
+        </div>
+        <div class="row wow fadeIn">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Добавить клиента
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form, { 'attr': {'class': 'foo'} }) }}
+                        <label>{{ form_label(form.firstname) }}</label>
+                        <br>
+                        {{ form_widget(form.firstname) }}
+                        <br>
+                        <label>{{ form_label(form.lastname) }}</label>
+                        <br>
+                        {{ form_widget(form.lastname) }}
+                        <br>
+                        <label>{{ form_label(form.phone) }}</label>
+                        <br>
+                        {{ form_widget(form.phone) }}
+                        <br>
+                        <br>
+                        <input type="submit" value="Добавить">
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row wow fadeIn">
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="blue-grey lighten-4">
+                            <tr>
+                                <th scope="col">Имя</th>
+                                <th scope="col">Фамилия</th>
+                                <th scope="col">Телефон</th>
+                                <th scope="col">Действие</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for client in clients %}
+                                <tr>
+                                    <td>{{ client.firstname}}</td>
+                                    <td>{{ client.lastname }}</td>
+                                    <td><a href="{{ path('client_single',{'client': client.id}) }}">{{ client.phone }}</a></td>
+                                    <td><a href="{{ path('client_remove', {'client': client.id}) }}">Удалить</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

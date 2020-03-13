@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main %}
+    <div class="container-fluid mt-5">
+        <div class="card mb-4 wow fadeIn">
+            <div class="card-body d-sm-flex justify-content-between">
+                <h2 class="mb-2 mb-sm-0 pt-1">
+                    {{ title }} {{ service.createdAt| date("d.m.Y")}}
+                </h2>
+            </div>
+        </div>
+        <div class="row wow fadeIn">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Информация
+                    </div>
+                    <div class="card-body">
+                        <div><span>Машина:</span> {{ service.car.number }}</div>
+                        <div><span>Пробег:</span>{{ service.mileage }}</div>
+                        <div><span>Замена масла</span>
+                            {% if service.oil == 1 %}
+                                Да
+                            {% else %}
+                                Нет
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Описание работ
+                    </div>
+                    <div class="card-body">
+                        <p>{{ service.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

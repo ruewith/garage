@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    {% block stylesheets %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    {% endblock %}
+</head>
+<body class="grey lighten-3">
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand waves-effect">
+                <strong class="cyan-text">Logo</strong>
+            </a>
+            <buttton class="navbar-toggler" type="buttton" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </buttton>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="{{ path('client') }}" class="nav-link waves-eff">Клиенты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('car') }}" class="nav-link waves-eff">Машины</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('service') }}" class="nav-link waves-eff">Работы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <aside class="sidebar-fixed position-fixed">
+        <a href="/" class="logo-wrapper wave-effect">
+            <img src="{{ asset('img/new-logo.png') }}" alt="logo" class="img-fluid" />
+        </a>
+        <div class="list-group list-group-flush">
+            <a href="{{ path('client') }}" class="list-group-item waves-effect">
+                <i class="fa fa-users mr-3"></i>Клиенты
+            </a>
+            <a href="{{ path('car') }}" class="list-group-item waves-effect">
+                <i class="fas fa-car mr-3"></i>Машины
+            </a>
+            <a href="{{ path('service') }}" class="list-group-item waves-effect">
+                <i class="fas fa-money-bill-wave mr-3"></i>Работы
+            </a>
+        </div>
+    </aside>
+</header>
+<main class="pt-5 max-lg-5">
+    {% block main %}{% endblock %}
+</main>
+<footer class="page-footer text-right font-small teal darken-2 mt-4 wow fadeIn">
+    <div class="pt-4">
+        <a href="#" class="btn btn-outline-white mr-4">
+            Бэкап БД
+            <i class="fa fa-download ml-2"></i>
+        </a>
+    </div>
+    <hr class="my-y" />
+    <div class="pb-4"></div>
+    <div class="footer-copyright text-center py-3">
+        <a href="mailto:ruewith@gmail.com">ruew1th</a>
+        <p>&copy;2020</p>
+    </div>
+</footer>
+{% block javascripts %}
+<!-- jQuery -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<!-- Bootstrap tooltips -->
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- MDB core JavaScript -->
+<script src="{{ asset('js/mdb.min.js') }}"></script>
+<!-- Custom JavaScript -->
+<script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>
+
+

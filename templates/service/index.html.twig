@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main %}
+    <div class="container-fluid mt-5">
+        <div class="card mb-4 wow fadeIn">
+            <div class="card-body d-sm-flex justify-content-between">
+                <h2 class="mb-2 mb-sm-0 pt-1">
+                    {{ title }}
+                </h2>
+            </div>
+        </div>
+        <div class="row wow fadeIn">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Добавить работу
+                    </div>
+                    <div class="card-body">
+                        <form action="/service/add" method="post">
+                            <label for="car_id">Владелец</label>
+                            <br>
+                            <select name="car_id" id="car_id">
+                                {% for car in cars %}
+                                    <option value="{{ car.id }}">
+                                        {{ car.number }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                            <br>
+                            <label for="milage">Пробег</label>
+                            <br>
+                            <input type="number" name="mileage" id="milage">
+                            <br>
+                            <label for="oil">Масло</label>
+                            <br>
+                            <select name="oil" id="oil">
+                                <option value="0">Нет</option>
+                                <option value="1">Да</option>
+                            </select>
+                            <br>
+                            <label for="descr">Описание</label>
+                            <br>
+                            <textarea name="description" id="descr"></textarea>
+                            <br>
+                            <label for="date">Дата</label>
+                            <br>
+                            <label>
+                                <input type="date" name="date" id="date">
+                            </label>
+                            <br>
+                            <input type="submit" value="Добавить">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row wow fadeIn">
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="blue-grey lighten-4">
+                            <tr>
+                                <th>Дата</th>
+                                <th>Машина</th>
+                                <th>Пробег</th>
+                                <th>Масло</th>
+                                <th>Описание</th>
+                                <th>Действие</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for service in services %}
+                                <tr>
+                                    <th>
+                                        <a href="{{ path('service_single', {'service': service.id}) }}">{{ service.createdAt| date("d.m.Y")}}</a></th>
+                                    <th>
+                                        <a href="{{ path('car_single', {'car':service.car.id} )}}">{{ service.car.number }}</a>
+                                    </th>
+                                    <td>{{ service.mileage}}</td>
+                                    <td>
+                                        {% if service.oil == 1 %}
+                                            Да
+                                        {% else %}
+                                            Нет
+                                        {% endif %}
+                                    </td>
+                                    <td width="50%">{{ service.description }}</td>
+                                    <td><a href="{{ path('service_remove', {'service': service.id}) }}">Удалить</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
