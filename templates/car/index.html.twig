@@ -11,41 +11,44 @@
                 </h2>
             </div>
         </div>
-        <div class="row wow fadeIn">
-            <div class="col-md-6 mb-4">
+        <div class="row wow fadeIn justify-content-center">
+            <div class="col-lg-6 col-md-12 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        Добавить машину
+                        <h4 class="h4 mt-2">
+                            Добавить машину
+                        </h4>
                     </div>
                     <div class="card-body">
                         <form action="/car/add" method="post">
-                            <label for="client_id">Владелец</label>
-                            <br>
-                            <select name="client_id" id="client_id">
-                                {% for client in clients %}
-                                    <option value="{{ client.id }}">
-                                        {{ client.firstname }} {{ client.lastname }}
-                                    </option>
-                                {% endfor %}
-                            </select>
-                            <br>
-                            <label for="mark">Марка</label>
-                            <br>
-                            <input type="text" name="mark" id="mark">
-                            <br>
-                            <label for="model">Модель</label>
-                            <br>
-                            <input type="text" name="model" id="model">
-                            <br>
-                            <label for="number">Номер</label>
-                            <br>
-                            <input type="text" name="number" id="number">
-                            <br>
-                            <label for="vin">VIN</label>
-                            <br>
-                            <input type="text" name="vin" id="vin">
-                            <br>
-                            <input type="submit" value="Добавить">
+                            <div class="md-form">
+                                <select class="browser-default custom-select" name="client_id" id="client_id">
+                                <option selected disabled>Владелец</option>
+                                    {% for client in clients %}
+                                        <option value="{{ client.id }}">
+                                            {{ client.firstname }} {{ client.lastname }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <br>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" name="mark" id="mark" class="form-control">
+                                <label for="mark" class="font-weight-light">Марка</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" name="model" id="model" class="form-control">
+                                <label for="model" class="font-weight-light">Модель</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" name="number" id="number" class="form-control">
+                                <label for="number" class="font-weight-light">Номер</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" name="vin" id="vin" class="form-control">
+                                <label for="vin" class="font-weight-light">VIN</label>
+                            </div>
+                            <input class="btn btn-cyan waves-effect waves-light" type="submit" value="Добавить">
                         </form>
                     </div>
                 </div>

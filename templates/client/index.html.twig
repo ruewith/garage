@@ -11,28 +11,29 @@
                 </h2>
             </div>
         </div>
-        <div class="row wow fadeIn">
-            <div class="col-md-6 mb-4">
+        <div class="row wow fadeIn justify-content-center">
+            <div class="col-lg-6 col-md-12 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        Добавить клиента
+                        <h4 class="h4 mt-2">
+                            Добавить клиента
+                        </h4>
                     </div>
                     <div class="card-body">
-                        {{ form_start(form, { 'attr': {'class': 'foo'} }) }}
-                        <label>{{ form_label(form.firstname) }}</label>
-                        <br>
-                        {{ form_widget(form.firstname) }}
-                        <br>
-                        <label>{{ form_label(form.lastname) }}</label>
-                        <br>
-                        {{ form_widget(form.lastname) }}
-                        <br>
-                        <label>{{ form_label(form.phone) }}</label>
-                        <br>
-                        {{ form_widget(form.phone) }}
-                        <br>
-                        <br>
-                        <input type="submit" value="Добавить">
+                        {{ form_start(form) }}
+                            <div class="md-form">
+                                {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
+                                <label for="client_firstname" class="font-weight-light">{{ form.firstname.vars.label }}</label>
+                            </div>
+                            <div class="md-form">
+                                {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+                                <label for="client_lastname" class="font-weight-light">{{ form.lastname.vars.label }}</label>
+                            </div>
+                            <div class="md-form">
+                                {{ form_widget(form.phone, { 'attr': {'class': 'form-control'} }) }}
+                                <label for="client_phone" class="font-weight-light">{{ form.phone.vars.label }}</label>
+                            </div>
+                            <input class="btn btn-cyan waves-effect waves-light" type="submit" value="Добавить">
                         {{ form_end(form) }}
                     </div>
                 </div>

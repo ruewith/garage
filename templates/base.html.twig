@@ -20,10 +20,10 @@
 </head>
 <body class="grey lighten-3">
 <header>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-        <div class="container-fluid">
+    <nav class="navbar custom-top fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container-fluid d-xl-none">
             <a href="#" class="navbar-brand waves-effect">
-                <strong class="cyan-text">Logo</strong>
+                <strong class="cyan-text">Меню</strong>
             </a>
             <buttton class="navbar-toggler" type="buttton" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,13 +48,13 @@
             <img src="{{ asset('img/new-logo.png') }}" alt="logo" class="img-fluid" />
         </a>
         <div class="list-group list-group-flush">
-            <a href="{{ path('client') }}" class="list-group-item waves-effect">
+            <a href="{{ path('client') }}" class="list-group-item text-info waves-effect">
                 <i class="fa fa-users mr-3"></i>Клиенты
             </a>
-            <a href="{{ path('car') }}" class="list-group-item waves-effect">
+            <a href="{{ path('car') }}" class="list-group-item text-info waves-effect">
                 <i class="fas fa-car mr-3"></i>Машины
             </a>
-            <a href="{{ path('service') }}" class="list-group-item waves-effect">
+            <a href="{{ path('service') }}" class="list-group-item text-info waves-effect">
                 <i class="fas fa-money-bill-wave mr-3"></i>Работы
             </a>
         </div>
