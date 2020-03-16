@@ -21,9 +21,9 @@
                     </div>
                     <div class="card-body">
                         <form action="/car/add" method="post">
+                            <label for="client_id" class="font-weight-light">Владелец</label>
                             <div class="md-form">
-                                <select class="browser-default custom-select" name="client_id" id="client_id">
-                                <option selected disabled>Владелец</option>
+                                <select required class="browser-default custom-select" name="client_id" id="client_id">
                                     {% for client in clients %}
                                         <option value="{{ client.id }}">
                                             {{ client.firstname }} {{ client.lastname }}
@@ -33,19 +33,19 @@
                                 <br>
                             </div>
                             <div class="md-form">
-                                <input type="text" name="mark" id="mark" class="form-control">
+                                <input required type="text" name="mark" id="mark" class="form-control">
                                 <label for="mark" class="font-weight-light">Марка</label>
                             </div>
                             <div class="md-form">
-                                <input type="text" name="model" id="model" class="form-control">
+                                <input required type="text" name="model" id="model" class="form-control">
                                 <label for="model" class="font-weight-light">Модель</label>
                             </div>
                             <div class="md-form">
-                                <input type="text" name="number" id="number" class="form-control">
+                                <input required type="text" name="number" id="number" class="form-control">
                                 <label for="number" class="font-weight-light">Номер</label>
                             </div>
                             <div class="md-form">
-                                <input type="text" name="vin" id="vin" class="form-control">
+                                <input required type="text" name="vin" id="vin" class="form-control">
                                 <label for="vin" class="font-weight-light">VIN</label>
                             </div>
                             <input class="btn btn-cyan waves-effect waves-light" type="submit" value="Добавить">

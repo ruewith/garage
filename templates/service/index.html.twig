@@ -19,38 +19,37 @@
                     </div>
                     <div class="card-body">
                         <form action="/service/add" method="post">
-                            <label for="car_id">Владелец</label>
-                            <br>
-                            <select name="car_id" id="car_id">
-                                {% for car in cars %}
-                                    <option value="{{ car.id }}">
-                                        {{ car.number }}
-                                    </option>
-                                {% endfor %}
-                            </select>
-                            <br>
-                            <label for="milage">Пробег</label>
-                            <br>
-                            <input type="number" name="mileage" id="milage">
-                            <br>
-                            <label for="oil">Масло</label>
-                            <br>
-                            <select name="oil" id="oil">
-                                <option value="0">Нет</option>
-                                <option value="1">Да</option>
-                            </select>
-                            <br>
-                            <label for="descr">Описание</label>
-                            <br>
-                            <textarea name="description" id="descr"></textarea>
-                            <br>
-                            <label for="date">Дата</label>
-                            <br>
-                            <label>
-                                <input type="date" name="date" id="date">
-                            </label>
-                            <br>
-                            <input type="submit" value="Добавить">
+                            <label for="card_id" class="font-weight-light">Машина</label>
+                            <div class="md-form">
+                                <select class="browser-default custom-select" name="car_id" id="car_id">
+                                    {% for car in cars %}
+                                        <option value="{{ car.id }}">
+                                            {{ car.number }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <label for="oil" class="font-weight-light">Масло</label>
+                            <div class="md-form">
+                                <select class="browser-default custom-select" name="oil" id="oil">
+                                    <option value="0">Нет</option>
+                                    <option value="1">Да</option>
+                                </select>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" name="mileage" id="mileage" class="form-control">
+                                <label for="mileage" class="font-weight-light">Пробег</label>
+                            </div>
+                            
+                            <div class="md-form">
+                                <textarea class="md-textarea form-control" name="description" id="descr"></textarea>
+                                <label for="descr" class="font-weight-light">Описание</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" name="date" id="date" class="form-control">
+                                <label for="date" class="font-weight-light">Дата</label>
+                            </div>
+                            <input class="btn btn-cyan waves-effect waves-light" type="submit" value="Добавить">
                         </form>
                     </div>
                 </div>
