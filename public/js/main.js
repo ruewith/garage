@@ -28,7 +28,6 @@ $(document).ready(function() {
             mask: Number,
             min: 0,
             max: 1000000,
-            thousandsSeparator: " "
         });
     }
 });
